@@ -1,0 +1,57 @@
+.jumbotron {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.test{
+  position: relative;
+}
+
+
+.test h1 {
+    text-align:center;
+    position: absolute;
+    line-height: 210px;
+    width: 100%;
+}
+
+.test h4 {
+    text-align:center;
+    position: absolute;
+    padding-top: 40px;
+    line-height: 250px;
+    width: 100%;
+}
+svg {
+   -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.inner {
+  stroke-dasharray: 690; /* this value is the pixel circumference of the circle */
+  stroke-dashoffset: 0;
+  transition: all step-end linear;
+}
+
+.outer {
+  stroke-dasharray: 750; /* this value is the pixel circumference of the circle */
+  stroke-dashoffset: 0;
+  transition: all step-end linear;
+}
+
+.pause{
+  display: none;
+}
+
+.floatrow{
+    display: inline-block;
+    padding: 20px;
+    margin: 50px;
+}
+
+.floatrow .number {
+    position: relative;
+    top: 8px;
+    margin-top: 20px; 
+    font-size:45px
+}

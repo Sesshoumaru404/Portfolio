@@ -1,0 +1,62 @@
+var quotes = [
+  {
+    "quote": "Failure will never overtake me if my determination to succeed is strong enough.",
+    "author": "Og Mandino"
+  },
+  {
+    "quote": "What you do today can improve all your tomorrows.",
+    "author": "Ralph Marston"
+  },
+  {
+    "quote": "In order to succeed, we must first believe that we can.",
+    "author": "Nikos Kazantzakis"
+  },
+  {
+    "quote": "Aim for the moon. If you miss, you may hit a star.",
+    "author": "W. Clement Stone"
+  },
+  {
+    "quote": "Always do your best. What you plant now, you will harvest later.",
+    "author": "Og Mandino"
+  },
+  {
+    "quote": "The will to win, the desire to succeed, the urge to reach your full potential... these are the keys that will unlock the door to personal excellence.",
+    "author": "Confucius"
+  },
+  {
+    "quote": "Don't watch the clock; do what it does. Keep going.",
+    "author": "Sam Levenson"
+  },
+  {
+    "quote": "The bigger the mountain, the better the view! Conquer everything that stands before you.",
+    "author": "Anonymous"
+  },
+  {
+    "quote": "Your talent is God's gift to you. What you do with it is your gift back to God.",
+    "author": "Leo Buscaglia"
+  },
+  {
+    "quote": "We may encounter many defeats but we must not be defeated.",
+    "author": "Maya Angelou"
+  },
+  {
+    "quote": "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence.",
+    "author": "Helen Keller"
+  },
+  {
+    "quote": "Start where you are. Use what you have. Do what you can.",
+    "author": "Arthur Ashe"
+  },
+  {
+    "quote": "Do the difficult things while they are easy and do the great things while they are small. A journey of a thousand miles must begin with a single step.",
+    "author": "Lao Tzu"
+  },
+  {
+    "quote": "Without hard work, nothing grows but weeds.",
+    "author": "Gordon B. Hinckley"
+  },
+  {
+    "quote": "Be miserable. Or motivate yourself. Whatever has to be done, it's always your choice.",
+    "author": "Wayne Dyer"
+  },
+]

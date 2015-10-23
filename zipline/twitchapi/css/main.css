@@ -1,0 +1,11 @@
+.streams {
+  width: 500px;
+  padding: 10px;
+}
+.streams  span {
+  float: right;
+}
+
+.streams  img {
+  margin-right: 5px;
+}
