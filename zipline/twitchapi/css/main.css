@@ -1,11 +1,60 @@
 .streams {
-  width: 500px;
   padding: 10px;
+  text-align: left;
+  height: 45px; 
 }
-.streams  span {
+.streams span {
   float: right;
+  height: 40px; 
 }
 
 .streams  img {
+  height: 40px;
+  margin-top: -5px;
   margin-right: 5px;
+  float: left;
+}
+
+.streamtable {
+    margin-left:auto ;
+    margin-right: auto;
+}
+
+.streamtable a {
+  text-decoration: none;
+}
+.streamtable th{
+    text-align: center;
+    width: 20px;
+    height: 30px;    
+}
+
+.startTime{
+    font-size: x-small;
+}
+
+.streamtable input{
+    margin: 10px;
+    width: 250px;
+    
+}
+
+.offline{
+  width: 20px;
+    
+}
+
+.online{
+  height: 50px;
+}
+
+.online .streams {
+  display: inline-block;
+  width: 250px;
+}
+
+.online .streamexpand {
+  display: inline-block;
+  margin-left: -5px;
+  width: 20px;    
 }
