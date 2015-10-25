@@ -8,7 +8,7 @@ $(document).ready(function (e) {
         searcharr = [];
     function offline(argument) {
         searcharr.push(argument);
-        return "<div class='offline "+argument+ "'><a href='http://www.twitch.tv/" + argument + "'><div class='streams'><img src='./img/" + argument +
+        return "<div class='offline "+argument+ "'><a href='http://www.twitch.tv/" + argument + "'><div class='streams'><img src='../files/" + argument +
             ".jpeg' alt='140x140' class='img-circle' style='width: 30px; height: 30px;''>" +
             argument + "<span class='glyphicon glyphicon-remove-sign'><span></div></a></div>";
     }
