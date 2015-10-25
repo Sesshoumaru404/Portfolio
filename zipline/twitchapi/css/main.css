@@ -1,12 +1,18 @@
 .streams {
   padding: 10px;
   text-align: left;
-  height: 45px; 
+  height: 45px;
 }
 .streams span {
+  color: red;
   float: right;
-  height: 40px; 
+  height: 40px;
 }
+
+.streams:hover {
+  font-weight: bold;
+}
+
 
 .streams  img {
   height: 40px;
@@ -26,26 +32,31 @@
 .streamtable th{
     text-align: center;
     width: 20px;
-    height: 30px;    
+    height: 30px;
 }
 
 .startTime{
+    color: grey !important;
     font-size: x-small;
 }
 
 .streamtable input{
     margin: 10px;
     width: 250px;
-    
+
 }
 
-.offline{
-  width: 20px;
-    
+.active{
+  background-color: red;
 }
+
+/*.offline{
+  width: 20px;
+
+}*/
 
 .online{
-  height: 50px;
+  height: auto;
 }
 
 .online .streams {
@@ -56,5 +67,13 @@
 .online .streamexpand {
   display: inline-block;
   margin-left: -5px;
-  width: 20px;    
+  width: 20px;
+}
+
+.info {
+  display: none;
+  width: 250px !important;
+  margin-left: 10px;
+  font-size: smaller;
+  color: black;
 }
