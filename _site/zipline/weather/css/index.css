@@ -1,0 +1,19 @@
+body {
+  background-color: #9999A0;
+}
+
+.quote {
+  font-family: Lobster, Georgia, serif;
+}
+
+.author {
+  text-align: right;
+  font: italic bold 12px/30px Georgia, serif;
+}
+.col-md-8{
+  text-align: center;
+}
+
+.col-md-8 h2 {
+  margin-top: 0px;
+}
