@@ -15,9 +15,9 @@ $(document).ready(function (e) {
         $(".equalsTo").text('');
         input.text('');
     }
-    
+
     function doMath(first, second) {
-        // Preform a math equation base on an operater 
+        // Preform a math equation base on an operater
         a = parseFloat(first, 10);
         b = parseFloat(second, 10);
         switch (operater) {
@@ -43,6 +43,9 @@ $(document).ready(function (e) {
 
     $(".operator").click(function () {
         var op = $(this).text();
+        if (restart) {
+          restart = false;          
+        }
         if (parseFloat(input.text().length) === 0 || parseFloat(input.text()) === answer) {
             // Check if input or displays answer, then change sign
             operater = $(this).attr('value');
@@ -51,7 +54,7 @@ $(document).ready(function (e) {
         }
         if ((!b && a && parseFloat(input.text().length) === 0) || parseFloat(input.text()) === answer) { return; }
         if (operater) {
-//            If sign is present calucate answer 
+//            If sign is present calucate answer
             doMath(a, input.text());
             $(".beforeOp").text(answer);
             $(".Op").text(op);
@@ -91,12 +94,12 @@ $(document).ready(function (e) {
     });
 
     $(".equals").click(function () {
-//        When equals is clicked calulate and clear 
+//        When equals is clicked calulate and clear
         if (input.text() == answer) { return; }
         b = $(".input").text();
         $(".afterOp").text(b);
         doMath(a, b);
-//        If big number change format 
+//        If big number change format
         answer = (answer > 999999999999999999) ? parseFloat(answer).toPrecision(12) : answer;
         $(".equalsTo").text(answer);
         $(".input").text(answer);

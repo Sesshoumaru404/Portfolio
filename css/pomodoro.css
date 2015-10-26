@@ -1,5 +1,4 @@
 .jumbotron {
-  margin-top: 20px;
   text-align: center;
 }
 
@@ -24,6 +23,8 @@
 }
 svg {
    -webkit-transform: rotate(-90deg);
+   -moz-transform: rotate(-90deg);
+   -o-transform: rotate(-90deg);
     transform: rotate(-90deg);
 }
 
@@ -52,6 +53,6 @@ svg {
 .floatrow .number {
     position: relative;
     top: 8px;
-    margin-top: 20px; 
+    margin-top: 20px;
     font-size:45px
 }

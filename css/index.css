@@ -4,7 +4,7 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  /*padding-top: 50px;*/
+  font-family: serif;
 }
 
 
@@ -23,10 +23,12 @@ body {
 
 /* Hide for mobile, show later */
 .sidebar {
-  display: none;
+  text-align: center;
 }
 @media (min-width: 768px) {
   .sidebar {
+    text-align: left;
+    width: 215px;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -36,12 +38,36 @@ body {
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    border-right: 1px solid #eee;
+    border-right: 2px solid #eee;
   }
 }
 
 .sidebar-info {
-  margin-top: 100px;
+  margin-top: 50px;
+}
+
+.sidebar-info ul {
+  margin-left: -25px;
+  list-style-type: none;
+}
+
+.sidebar-info img{
+  display:block;
+  margin:auto;
+  height: 140px;
+  width: 140px;
+}
+
+.sidebar-info a {
+  font-size: 16px;
+  font-family: serif;
+  padding-bottom: 5px;
+  text-decoration: none;
+  color: #0ef319;
+}
+
+.sidebar-info a:hover {
+  font-weight: bold;
 }
 
 
@@ -89,6 +115,7 @@ body {
   margin-bottom: 30px;
   text-align: center;
 }
+
 .placeholders h4 {
   margin-bottom: 0;
 }
