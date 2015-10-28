@@ -2,27 +2,30 @@
 layout: default
 title: Pomodoro Clock
 head:
+  <link rel="stylesheet" href="../css/twitchapi.css">
+footer:
   <script src='../js/twitchapi.js'></script>
   <script src="../js/moment.js"></script>
-  <link rel="stylesheet" href="../css/twitchapi.css">
 ---
 
 <div class="row">
-  <table class="streamtable" border="1" >
-    <tr>
-      <th class='active'>
-        All
-      </th>
-      <th>
-        Online
-      </th>
-      <th>
-        Offline
-      </th>
-    </tr >
+  <table class="table table-striped streamtable" border="1" >
+    <thead>
+      <tr>
+        <th class='active'>
+          All
+        </th>
+        <th>
+          Online
+        </th>
+        <th>
+          Offline
+        </th>
+      </tr >
+    </thead>
     <tr>
       <td colspan="3">
-        <input type="search" class="form-control" placeholder="Search All">
+        <input type="search" class="form-control" placeholder="Search text highlighted below">
       </td>
     </tr>
     <tr>

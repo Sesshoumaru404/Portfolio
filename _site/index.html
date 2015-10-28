@@ -13,12 +13,12 @@
     <title>Paul B.</title>
 
     <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin Slab">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/index.css">
     <!-- Custom styles for this template -->
     <link href="/css/index.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/index.css">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -35,36 +35,96 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <div class="sidebar-info">
-  <img src="/files/letter.png" alt="140x140" class="img-circle">
-  <h2>Paul</h2>
-  <p>
-    Programming portfolio, with projects and information
-  </p>
-  <div >
-    <a href="https://github.com/Sesshoumaru404"><i class="fa fa-github fa-4"></i></a>
-    <a href="https://www.linkedin.com/in/boayuepaul"><i class="fa fa-linkedin-square fa-4"></i></a>
-    <a href="mailto:paul@boayue.net" target="_top"><i class="fa fa-envelope fa-4"></i></a>
-  </div>
-  <ul>
-    <li><a href="/">Overview</a></li>
-    <li><a href="#">Progress & Goals</a></li>
-    <li>My projects:</li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Free Code Camp <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="/zipline/calculator.html">Calculator</a></li>
-        <li><a href="/zipline/pomodoro.html">Pomodoro</a></li>
-        <li><a href="/zipline/twitchapi.html">Twitchapi</a></li>
-        <li><a href="/zipline/weather.html">Quotes</a></li>
+          <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <img alt="Brand" width="20" height="20" src="/files/letter.png">
+      </a>
+      <a class="navbar-brand" href="/">Paul</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Overview</a></li>
+        <li><a href="#">Progress & Goals</a></li>
+        <li class="active"><a href="#">Projects</a></li>
+        <li><a href="/zipline/calculator.html">FreeCode : Calculator</a></li>
+        <li><a href="/zipline/pomodoro.html">FreeCode : Pomodoro</a></li>
+        <li><a href="/zipline/twitchapi.html">FreeCode : Twitchapi</a></li>
+        <li><a href="/zipline/weather.html">FreeCode : Quotes</a></li>
       </ul>
-    </li>
-  </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<!-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class='col-md-12'>
+    <div class="navbar-header">
+    </button> <a class="navbar-brand" href="/">P B</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/">Home</a></li>
+        <li><a href="newindex.html">testign</a></li>
+      <p class="navbar-text">My projects: </p>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Udcity<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="http://52.11.159.100/">Catalog App</a></li>
+          <li><a href="/zipline/pomodoro.html">Pomodoro</a></li>
+          <li><a href="/zipline/twitchapi.html">Twitchapi</a></li>
+          <li><a href="/zipline/weather.html">Quotes</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FreeCodeCamp<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Ziplines</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="/zipline/calculator.html">Calculator</a></li>
+          <li><a href="/zipline/pomodoro.html">Pomodoro</a></li>
+          <li><a href="/zipline/twitchapi.html">Twitchapi</a></li>
+          <li><a href="/zipline/weather.html">Quotes</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
+          <div class="col-sm-3 col-md-2 sidebar">
+  <div class="sidebar-info">
+    <img src="/files/letter.png" alt="140x140" class="img-circle">
+    <h2>Paul</h2>
+    <p>
+      Programming portfolio, with projects and information
+    </p>
+    <div >
+      <a href="https://github.com/Sesshoumaru404"><i class="fa fa-github fa-4"></i></a>
+      <a href="https://www.linkedin.com/in/boayuepaul"><i class="fa fa-linkedin-square fa-4"></i></a>
+      <a href="mailto:paul@boayue.net" target="_top"><i class="fa fa-envelope fa-4"></i></a>
+    </div>
+    <ul>
+      <li><a href="/">Overview</a></li>
+      <li><a href="#">Progress & Goals</a></li>
+      <li>My projects:</li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Free Code Camp <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/zipline/calculator.html">Calculator</a></li>
+          <li><a href="/zipline/pomodoro.html">Pomodoro</a></li>
+          <li><a href="/zipline/twitchapi.html">Twitchapi</a></li>
+          <li><a href="/zipline/weather.html">Quotes</a></li>
+        </ul>
+      </li>
+    </ul>
+    </div>
   </div>
 </div>
 
-        </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <div class="jumbotron">
   <div class="row">
@@ -104,29 +164,118 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <h1>My Portfolio</h1>
-  <div class="col-md-4">
-    <h2>Heading</h2>
-    <img class='img-responsive' src='http://i.imgur.com/jESF2.jpg'>
-    <p>
-      Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.
-    </p>
-  </div>
-  <div class="col-md-4">
-    <h2>						Heading					</h2>
-    <img class='img-responsive' src='http://i.imgur.com/jESF2.jpg'>
-    <p>
-      Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.
-    </p>
-  </div>
-  <div class="col-md-4">
-    <h2>						Heading					</h2>
-    <img class='img-responsive' src='http://i.imgur.com/jESF2.jpg'>
-    <p>
-      Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.
-    </p>
-  </div>
+<!-- <div class="row img_row">
+  <h1>Udacity Projects</h1>
+    <div class="col-md-4" >
+      <div class="thumbnail project_img" href="/zipline/calculator.html">
+        <div class="img_caption">
+          <h4>Calculator</h4>
+          <p>
+            Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.
+          </p>
+        </div>
+        <div class="img_footer">
+          <h2>Calculator</h2>
+        </div>
+        <img class='img-responsive' src='./files/cal.png'>
+      </div>
+    </div>
+    <div class="col-md-4" >
+      <div class="thumbnail project_img" href="/zipline/pomodoro.html">
+        <div class="img_caption">
+          <h4>Pomodoro</h4>
+          <p>
+            Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.
+          </p>
+        </div>
+        <div class="img_footer">
+          <h2>Pomodoro</h2>
+        </div>
+        <img class='img-responsive' src='./files/pomodoro.png'>
+      </div>
+    </div>
+    <div class="col-md-4" >
+      <div class="thumbnail project_img" href="/zipline/weather.html">
+        <div class="img_caption">
+          <h4>Quotes</h4>
+          <p>
+            Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.
+          </p>
+        </div>
+        <div class="img_footer">
+          <h2>Quotes</h2>
+        </div>
+        <img class='img-responsive' src='./files/quote.png'>
+      </div>
+    </div>
+</div> -->
+<div class="row img_row">
+  <h1>Free Code Camp Projects</h1>
+    <div class="col-md-4" >
+      <div class="thumbnail project_img" href="/zipline/calculator.html">
+        <div class="img_caption">
+          <h4>Calculator</h4>
+          <p>
+            Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.
+          </p>
+        </div>
+        <div class="img_footer">
+          <h2>Calculator</h2>
+        </div>
+        <img class='img-responsive' src='./files/cal.png'>
+      </div>
+    </div>
+    <div class="col-md-4" >
+      <div class="thumbnail project_img" href="/zipline/pomodoro.html">
+        <div class="img_caption">
+          <h4>Pomodoro</h4>
+          <p>
+            Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.
+          </p>
+        </div>
+        <div class="img_footer">
+          <h2>Pomodoro</h2>
+        </div>
+        <img class='img-responsive' src='./files/pomodoro.png'>
+      </div>
+    </div>
+    <div class="col-md-4" >
+      <div class="thumbnail project_img" href="/zipline/weather.html">
+        <div class="img_caption">
+          <h4>Quotes</h4>
+          <p>
+            Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.
+          </p>
+        </div>
+        <div class="img_footer">
+          <h2>Quotes</h2>
+        </div>
+        <img class='img-responsive' src='./files/quote.png'>
+      </div>
+    </div>
+</div>
+<div class="row img_row">
+    <div class="col-md-4" >
+      <div class="thumbnail project_img" href="/zipline/twitchapi.html">
+        <div class="img_caption">
+          <h4>Twitch</h4>
+          <p>
+            Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.
+          </p>
+        </div>
+        <div class="img_footer">
+          <h2>Twitchapi</h2>
+        </div>
+        <img class='img-responsive' src='./files/twitch.png'>
+      </div>
+    </div>
+    <div class="col-md-4" >
+      <div class="thumbnail">
+        <div class="img_footer">
+          <h2>More Coming ...</h2>
+        </div>
+      </div>
+    </div>
 </div>
 <div class='jumbotron'>
   <h2 class='text-center'>Contact me</h2>
@@ -160,9 +309,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/dropdown.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src='../js/index.js'></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>

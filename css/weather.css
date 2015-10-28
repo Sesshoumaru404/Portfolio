@@ -1,19 +1,17 @@
 body {
-  background-color: #9999A0;
+  background-color: #FFF;
 }
 
 .quote {
   font-family: Lobster, Georgia, serif;
+  padding: 3px 5px;
+  text-align: center;
 }
 
 .author {
   text-align: right;
   font: italic bold 12px/30px Georgia, serif;
 }
-.col-md-8{
+.weather_div{
   text-align: center;
-}
-
-.col-md-8 h2 {
-  margin-top: 0px;
 }

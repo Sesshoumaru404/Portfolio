@@ -3,11 +3,12 @@ layout: default
 title: Weather and quotes
 head:
   <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/weather.css">
+footer:
   <script type="text/javascript" language="javascript" src="../files/quotes.json"></script>
   <script src='../js/quotes.js'></script>
   <script src="../js/moment.js"></script>
   <script src='../js/jquery.simpleWeather.min.js'></script>
-  <link rel="stylesheet" href="../css/weather.css">
 ---
 
 <div class="jumbotron" style="margin-top:60px">
@@ -18,7 +19,7 @@ head:
       <p><a class="btn btn-primary btn-lg changeQuote" href="#" role="button">Next Quote</a></p>
 
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 weather_div">
       <h2>
         <span id="weatherCity" class="label label-default "></span>
         <span id="weather" class="label label-default"></span>

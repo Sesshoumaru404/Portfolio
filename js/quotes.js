@@ -79,7 +79,6 @@ function loadWeather(weatherlocation, woeid) {
         $(".quote").css("color", "red");
         $(".label-default").css("background-color", "red");
       }
-      console.log(weatherlocation, woeid );
       return weatherlocation, woeid;
     },
     error: function(error) {

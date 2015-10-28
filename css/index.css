@@ -18,13 +18,25 @@ body {
 }
 
 /*
+ * Navbar
+ */
+/*.navbar {
+  display: none;
+}*/
+
+@media (min-width: 768px) {
+  .navbar {
+    display: none;
+  }
+}
+/*
  * Sidebar
  */
 
 
 /* Hide for mobile, show later */
 .sidebar {
-  text-align: center;
+  display: none;
 }
 @media (min-width: 768px) {
   .sidebar {
@@ -102,7 +114,7 @@ body {
  */
 
 .main {
-  padding: 20px;
+  padding: 60px 20px;
 }
 @media (min-width: 768px) {
   .main {
@@ -133,4 +145,46 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
+}
+
+
+/*
+ * Project images
+ */
+
+.img_row .thumbnail {
+  position:relative;
+  overflow:hidden;
+  height: 338px;
+  border: 2px solid #ddd;
+}
+
+.img_row .thumbnail .img_caption{
+  display: none;
+  position:absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  color:#fff !important;
+}
+
+.img_row .thumbnail .img_footer{
+  position:absolute;
+  bottom: 40px;
+  font-family: "Josefin Slab", serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: -4px;
+  text-align: center;
+  background: #000;
+  width: 100%;
+  height: 60px;
+  color: #0ef319;
+}
+
+
+.img_row .thumbnail p {
+    padding:6px;
 }

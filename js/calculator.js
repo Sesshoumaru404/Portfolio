@@ -44,7 +44,9 @@ $(document).ready(function (e) {
     $(".operator").click(function () {
         var op = $(this).text();
         if (restart) {
-          restart = false;          
+          $(".afterOp").text('');
+          $(".equalsTo").text('');
+          restart = false;
         }
         if (parseFloat(input.text().length) === 0 || parseFloat(input.text()) === answer) {
             // Check if input or displays answer, then change sign
@@ -95,7 +97,7 @@ $(document).ready(function (e) {
 
     $(".equals").click(function () {
 //        When equals is clicked calulate and clear
-        if (input.text() == answer) { return; }
+        if (input.text() == answer || !a && !b ) { return; }
         b = $(".input").text();
         $(".afterOp").text(b);
         doMath(a, b);

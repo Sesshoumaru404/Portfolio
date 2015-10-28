@@ -3,6 +3,12 @@
   text-align: left;
   height: 45px;
 }
+
+.streams .title{
+  float: none;
+  color: #000;
+}
+
 .streams span {
   color: red;
   float: right;
@@ -21,11 +27,16 @@
   float: left;
 }
 
+.active{
+  color: #0ef319;
+  background-color: red;
+}
+
 .streamtable {
     margin-left:auto ;
     margin-right: auto;
+    width: 270px;
 }
-
 .streamtable a {
   text-decoration: none;
 }
@@ -45,15 +56,6 @@
     width: 250px;
 
 }
-
-.active{
-  background-color: red;
-}
-
-/*.offline{
-  width: 20px;
-
-}*/
 
 .online{
   height: auto;
