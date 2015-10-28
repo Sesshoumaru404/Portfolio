@@ -7,8 +7,8 @@ $(document).ready(function (e) {
 
     function offline(argument) {
         // Create an offline td for table and add to array
-        searcharr.push(argument);
-        return "<div class='offline "+argument+ "'><a href='http://www.twitch.tv/" + argument + "'><div class='streams'><img src='../files/" + argument +
+        searcharr.push(argument); https://raw.githubusercontent.com/Sesshoumaru404/portfolio/gh-pages/files/robotcaleb.jpeg
+        return "<div class='offline "+argument+ "'><a href='http://www.twitch.tv/" + argument + "'><div class='streams'><img src='https://raw.githubusercontent.com/Sesshoumaru404/portfolio/gh-pages/files/" + argument +
             ".jpeg' alt='140x140' class='img-circle' style='width: 30px; height: 30px;'><span class='title'>" +
             argument + "</span><span class='glyphicon glyphicon-remove-sign'><span></div></a></div>";
     }
