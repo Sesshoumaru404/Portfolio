@@ -185,6 +185,10 @@ body {
 }
 
 
+.img_row .thumbnail h4 {
+  text-align: center;
+}
+
 .img_row .thumbnail p {
     padding:6px;
 }
