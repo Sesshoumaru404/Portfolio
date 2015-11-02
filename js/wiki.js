@@ -32,23 +32,29 @@ var newStyle = function (item) {
   return wrapper;
 };
 
-function News () {
-  this.feed = "http://www.freecodecamp.com/news/hot";
+function Wiki (search) {
+  this.link = "https://en.wikipedia.org/w/api.php?action=query&titles=" + search + "&prop=revisions&rvprop=content&format=json";
+  // console.log(this.link);
   this.getLastest = function () {
     $.ajax({
-        url: this.feed,
+        url: this.link,
         type: 'GET',
-        dataType: 'json',
+        dataType: 'jsonp',
     }).done(function (data) {
-        for (var item in data) {
-          $('.feeds').append(newStyle(data[item]));
-        }
+        console.log(data);
+        $('.results').append(data.query.pages);
       }
     );
   };
 }
 
 $(document).ready(function(e) {
-  var text = new News();
-  text.getLastest();
+
+  $('input').keypress(function (e) {
+    if (e.which == 13) {
+      var results = new Wiki(this.value);
+      results.getLastest();
+      return false;    //<---- Add this line
+    }
+  });
 });

@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 html {
   box-sizing: border-box;
 }
@@ -24,6 +23,7 @@ body {
   height: 400px;
   position: relative;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
 }
 
 .card__header {
@@ -38,26 +38,19 @@ body {
 .card__header img {
   width: 100%;
   height: 233px;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
-.card__header img:hover {
-  -webkit-filter: grayscale(0%);
-  filter: grayscale(0%);
-}
-
 .card__image {
-  width: 125px;
-  height: 125px;
-  margin-left: -62.5px;
+  width: 90px;
+  height: 90px;
+  margin-top: -50px;
   position: absolute;
-  left: 50%;
-  top: 150px;
+  left: 130px;
   border-radius: 50%;
+  background-color: #323232;
   border: 1px solid #cccccc;
 }
 .card__image:hover {
@@ -74,16 +67,20 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-/*.card__image img {
-  width: 125px;
-  height: 125px;
+.card__image .fa-thumbs-o-up {
+  font-size: 65px;
+  position: absolute;
+  left: 15px;
+  top: 10px;
   border-radius: 50%;
-  border: 1px solid #cccccc;
-}*/
+}
 
 .card__image:hover {
   -webkit-filter: grayscale(0%);
   filter: grayscale(0%);
+  color: #0EF319;
+  border: 1px solid #0EF319;
+
 }
 
 .card__info {
@@ -110,6 +107,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
+  font-size:1.3vmin;
   border-top: 1px solid #464646;
   background-color: #323232;
   cursor: pointer;
@@ -117,6 +115,7 @@ body {
   -moz-transition: background-color, 0.5s, ease-in-out;
   transition: background-color, 0.5s, ease-in-out;
 }
+
 .details-bottom:hover {
   -webkit-transition: background-color, 0.5s, ease-in-out;
   -moz-transition: background-color, 0.5s, ease-in-out;
@@ -126,30 +125,29 @@ body {
 .details__number {
   display: block;
   text-align: center;
-  font-size: 1.5em;
-  line-height: 1em;
-  padding-top: 5px;
   font-weight: 900;
+  padding-bottom: 3px;
 }
 .details__text {
+  padding-top: 5px;
+  width:100%;
   display: block;
   text-align: center;
-  font-size: .8em;
   padding-bottom: 6px;
 }
 .details__text-header {
   display: block;
   text-align: center;
   width: 100%;
-  font-size: 1.8em;
-  padding-top: 40px;
+  padding: 50px 2px 2px;
   position: absolute;
+  z-index:2;
 }
+
 .details__text-subheader {
   display: block;
   text-align: center;
   width: 100%;
-  font-size: .8em;
   padding-top: 80px;
   position: absolute;
 }
