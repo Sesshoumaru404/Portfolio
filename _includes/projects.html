@@ -1,0 +1,14 @@
+<div class="col-md-4" >
+  <div class="thumbnail project_img" href="{{include.url}}">
+    <div class="img_caption">
+      <h4>{{include.name}}</h4>
+      <p>
+        {{include.paragraph}}
+      </p>
+    </div>
+    <div class="img_footer">
+      <h2>{{include.name}}</h2>
+    </div>
+    <img class='img-responsive' src='./files/{{ include.name | downcase}}.png'>
+  </div>
+</div>

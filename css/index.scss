@@ -1,3 +1,11 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+
+// #0ef319
+$primary-color:  #75f30e;
+$primary-background: #1c263c;
+
 /*
  * Base structure
  */
@@ -71,6 +79,7 @@ body {
 }
 
 .sidebar-info img{
+  background-color:  $primary-background;
   display:block;
   margin:auto;
   height: 140px;
@@ -82,7 +91,7 @@ body {
   font-family: serif;
   padding-bottom: 5px;
   text-decoration: none;
-  color: #0ef319;
+  color: $primary-color;
 }
 
 .sidebar-info a:hover,
@@ -149,8 +158,19 @@ body {
 
 
 /*
- * Project images
+ * Projects content
  */
+
+.projects {
+  padding: 0px 10px 0px 10px;
+  font-family: "Josefin Slab", serif;
+}
+
+
+.projects h1 {
+  text-align: center;
+  padding-bottom: 10px;
+}
 
 .img_row .thumbnail {
   position:relative;
@@ -164,24 +184,28 @@ body {
   position:absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
   color:#fff !important;
+  h4 {
+    text-decoration: underline;
+    font-weight: bolder;
+  }
 }
 
 .img_row .thumbnail .img_footer{
   position:absolute;
   bottom: 40px;
-  font-family: "Josefin Slab", serif;
+  // font-family: "Josefin Slab", serif;
   font-size: 20px;
   font-weight: bold;
   margin-left: -4px;
   text-align: center;
-  background: #000;
+  background:  $primary-background;
   width: 100%;
   height: 60px;
-  color: #0ef319;
+  color: $primary-color;
 }
 
 
@@ -191,4 +215,9 @@ body {
 
 .img_row .thumbnail p {
     padding:6px;
+}
+
+.alt {
+  background-color: #eee;
+  border-radius: 6px;
 }
