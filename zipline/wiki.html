@@ -3,9 +3,8 @@ layout: default
 title: Wikipedia Viewer
 head:
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="../css/camper.css">
+  <link rel="stylesheet" href="../css/wiki.css">
 footer:
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
   <script src='../js/wiki.js'></script>
 ---
 
@@ -17,9 +16,10 @@ footer:
     <a href="http://codepen.io/sesshoumaru404/full/bVKOYj/" title="CodePen"><i class="fa fa-codepen fa-4"></i></a>
   </h1>
   <div class="wiki">
-    <input type="search" name="name" value="">
-    <div class="results">
-
+    <input id="wikisearch" type="search" class="form-control" placeholder="Search Wikipedia">
+    <div class="results row"></div>
+    <div class="moreResults row" start="" text="">
+      Load More ...
     </div>
   </div>
 </div>
