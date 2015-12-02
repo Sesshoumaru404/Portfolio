@@ -67,7 +67,7 @@ function Wiki (argument) {
 $(document).ready(function(e) {
   var results = new Wiki();
   $('#random').click(function (e) {
-    var link = "http://en.wikipedia.org/?curid=" +Math.floor(Math.random() * 1000000) + 1;
+    var link = "http://en.wikipedia.org/?curid=" + Math.floor(Math.random() * 1000000) + 1;
     window.location.href = link;
   });
   $('#wikisearch').keypress(function (e) {
@@ -79,7 +79,7 @@ $(document).ready(function(e) {
 
   $('.moreResults').click(function () {
     results.more(this);
-    return false;  
+    return false;
   });
 
   $('.results').on('click', '.entries', function () {
