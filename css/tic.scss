@@ -2,6 +2,14 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
+.start{
+  height: 300px;
+}
+
+#board{
+  display: none;
+}
+
 .tile{
   height: 100px;
   width: 100px;
