@@ -18,6 +18,7 @@ function Tictac (div) {
 Tictac.prototype.play = function (e) {
   // What to do when player clicks in a tile
   e.preventDefault();
+  // this.gameover = false;
   var clickedID = e.currentTarget.id;
   var tile = $("#" + clickedID);
   var remove = this.playableTiles.indexOf(clickedID);
@@ -28,7 +29,6 @@ Tictac.prototype.play = function (e) {
   this.player.plays.push(clickedID);
   this.playableTiles.splice(remove, 1);
   this.gameWon(this.player);
-  this.computerTurn();
 };
 
 Tictac.prototype.computerTurn = function () {
@@ -250,7 +250,10 @@ Tictac.prototype.findgoodplay = function (player, opp, checkdouble) {
 Tictac.prototype.gameWon = function  (playerturn) {
   // If is the game is won
   if(playerturn.plays.length < 3){
-    return ;
+    if (playerturn.name === this.player.name) {
+        return this.computerTurn();
+    }
+    return;
   }
   var turns = playerturn.plays.length;
   var lastPlay = playerturn.plays[turns - 1];
@@ -287,12 +290,17 @@ Tictac.prototype.gameWon = function  (playerturn) {
       this.player.wins++;
     }
     $("#gameover").show();
+    this.gameover = true;
     return setTimeout($.proxy(this.resetBoard, this), 1200);
   }
   if (this.playableTiles.length === 0) {
     $(".gameresult").text('Draw');
     $("#gameover").show();
+    this.gameover = true;
     return setTimeout($.proxy(this.resetBoard, this), 1200);
+  }
+  if (playerturn.name === this.player.name) {
+    return this.computerTurn();
   }
 };
 
