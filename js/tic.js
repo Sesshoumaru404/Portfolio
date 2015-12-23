@@ -6,9 +6,8 @@ function Tictac (div) {
   };
   this.computer= {
     name : "Computer",
-    plays :[], XorO: "O", nextplay: null
+    plays :[], XorO: "O"
   };
-
   this.Tiles  = ["a1","a2","a3","b1","b2","b3","c1","c2","c3"];
   this.playableTiles  = this.Tiles.slice(0);
   this.goodplays = [];
@@ -36,9 +35,9 @@ Tictac.prototype.play = function (e) {
 };
 
 Tictac.prototype.computerTurn = function () {
+  // What to do when it is the computers turn
   var move = this.computerlogic();
   var remove = this.playableTiles.indexOf(move);
-  // console.log(move, remove, this.playableTiles);
   this.computer.plays.push(move);
   $('#' + move).text(this.computer.XorO);
   this.playableTiles.splice(remove, 1);
@@ -62,6 +61,7 @@ Tictac.prototype.computerlogic = function () {
 };
 
 Tictac.prototype.matchthree = function (player, playabled) {
+  // Check to see if there are any possible three in a line
   var played = player.plays.slice(0);
   var nextmove;
   var column = [];
@@ -79,10 +79,8 @@ Tictac.prototype.matchthree = function (player, playabled) {
           }
         }
       }
-    }
-    // Check Rows
-    // tr:nth-child(1) .tile
-    for (i=1; i <= 3; i++) {
+      // Check Rows
+      // tr:nth-child(1) .tile
       if ($('tr:nth-child('+ i +') .tile').text() === player.XorO + player.XorO) {
         for (a=0; a <= 2; a++) {
           if ($('tr:nth-child('+ i +') .tile')[a].innerHTML === "") {
@@ -92,18 +90,18 @@ Tictac.prototype.matchthree = function (player, playabled) {
         }
       }
     }
-    // Check if can win by cross play
-    nextmove = this.checkCross(player);
+    // Check if can win by diagonal play
+    nextmove = this.diagonalCheck(player);
     if (nextmove) {
-      this.computer.nextplay = nextmove;
-      return this.computer.nextplay;
+      return nextmove;
     }
   }
 
   return null;
 };
 
-Tictac.prototype.checkCross = function (player) {
+Tictac.prototype.diagonalCheck = function (player) {
+  // Check diagonal for three in a row.
   if ($('#a1, #b2, #c3').text() === player.XorO + player.XorO) {
     return this.findempty($('#a1, #b2, #c3'));
   }
@@ -125,42 +123,55 @@ Tictac.prototype.findempty = function(array) {
   };
 
 Tictac.prototype.setupplays = function () {
+  // Logic so computer and make smarter plays.
   var random = Math.floor(Math.random() * this.playableTiles.length );
-  var play, diagonal, stopplay;
+  var play, stopplay;
   if (this.computer.plays.length === 0) {
     if ($('#a1, #a3, #c1, #c3').text() === this.player.XorO) {
+      // If corner played, play center tile
       stopplay = "b2";
       return stopplay;
     }
+    // Play and availible tile for first play
     play = this.playableTiles[random];
     return play;
   }
+  // Prevent a corner setup for player
   if ($('#a1, #a3, #c1, #c3').text() === this.player.XorO + this.player.XorO && $('#b2').text() === this.computer.XorO && this.computer.plays.length === 1 ) {
     stopplay = ["b1", "a2", "c2", "b3"];
     random = Math.floor(Math.random() * stopplay.length );
     return stopplay[random];
 
   }
+  // Easy win if availible
   if ($('#a1, #a3, #c1, #c3').text() === this.computer.XorO + this.computer.XorO) {
-    console.log("play center");
     if (this.playableTiles.indexOf('b2') != -1) {
       return 'b2';
     }
   }
-  play = this.diagonal(this.player, this.computer, true);
+  // Check if player can setup for a two three in row play if so prevent
+  play = this.findgoodplay(this.player, this.computer, true);
   if (play) { return play;}
-  play = this.diagonal(this.computer, this.player);
-  return play;
-};
-
-Tictac.prototype.diagonal = function (player, opp, checkdouble) {
-  var a;
-  this.goodplays = [];
-  if (this.playableTiles.length === 1) {
+  // Check if best play.
+  play = this.findgoodplay(this.computer, this.player);
+  if (play) {
+    return play;
+  } else {
+    // No good plays so just play
     return this.playableTiles[0];
   }
+};
+
+Tictac.prototype.findgoodplay = function (player, opp, checkdouble) {
+  // Check the board for best play.
+  var a, diagonal;
+  this.goodplays = [];
+  if (this.playableTiles.length === 1) {
+    // Last play no thinking needed
+    return this.playableTiles[0];
+  }
+  // Loop thru previous plays to find tiles that can combine to make three in row
   for (var i=0; i < player.plays.length; i++ ) {
-    // console.log(i, "looop", this.computer.plays.length );
     diagonal = ["a1", "c3", "c1", "a3", "b2"] ;
     if (diagonal.indexOf(player.plays[i]) !== -1 && opp.plays.indexOf("b2") === -1) {
       if (player.plays[i] === "a1" || player.plays[i] === "c3" ) {
@@ -201,14 +212,15 @@ Tictac.prototype.diagonal = function (player, opp, checkdouble) {
           }
         }
       }
-      console.log("diagonal step 1", diagonal, player.name);
     }
+    // Check for possible columun setup
     for ( a = 0; a < this.playableTiles.length; a++) {
       if (player.plays[i][0] === this.playableTiles[a][0]) {
         if (!$("td[id^='"+ player.plays[i][0] +"']").text().match(opp.XorO)) {
           this.goodplays.push(this.playableTiles[a]);
         }
       }
+      // Check for possible row setup
       if (player.plays[i][1] === this.playableTiles[a][1]) {
         if (!$("td[id$="+ player.plays[i][1] +"]").text().match(opp.XorO)) {
           this.goodplays.push(this.playableTiles[a]);
@@ -217,42 +229,45 @@ Tictac.prototype.diagonal = function (player, opp, checkdouble) {
     }
   }
   this.goodplays = this.goodplays.sort();
-  console.log(this.goodplays, player.name);
+  // Check it same tile is used multiply three in rows
   for (i=0; i < this.goodplays.length; i++ ) {
     if (this.goodplays[i] === this.goodplays[i+1]) {
-      console.log("dup play");
       play = this.goodplays[i];
       return play;
     }
   }
 
   if (checkdouble) {
-   console.log("skip");
    return;
   }
 
   var randomGoodplay = Math.floor(Math.random() * this.goodplays.length );
   play = this.goodplays[randomGoodplay];
-  console.log(this.goodplays, play);
   return play;
 
 };
 
 Tictac.prototype.gameWon = function  (playerturn) {
+  // If is the game is won
   var turns = playerturn.plays.length;
   var lastPlay = playerturn.plays[turns - 1];
+  var row = lastPlay[1];
+  var column = lastPlay[0].charCodeAt() - 96;
   var inRow = playerturn.XorO + playerturn.XorO  + playerturn.XorO;
   var winner;
-  // console.log(lastPlay, inRow, turns);
   if(turns < 3){
     return false;
   }
-  if ($('#a' + lastPlay[1] +',#b' + lastPlay[1] + ',#c' + lastPlay[1]).text() === inRow) {
-    $('#a' + lastPlay[1] +',#b' + lastPlay[1] + ',#c' + lastPlay[1]).css("color", "red");
+  // Check columns
+  // :nth-child(3)
+  if ($('.tile:nth-child('+ column +')').text() === inRow) {
+    $('.tile:nth-child('+ column +')').css("color", "red");
     winner = true;
   }
-  if ($('#' + lastPlay[0]+ '1, #' + lastPlay[0] + '2, #' + lastPlay[0] + "3").text() === inRow) {
-    $('#' + lastPlay[0]+ '1, #' + lastPlay[0] + '2, #' + lastPlay[0] + "3").css("color", "red");
+  // Check Rows
+  // tr:nth-child(1) .tile
+  if ($('tr:nth-child('+ row +') .tile').text() === inRow) {
+    $('tr:nth-child('+ row +') .tile').css("color", "red");
     winner = true;
   }
   if ($('#a1, #b2, #c3').text() === inRow ) {
@@ -279,8 +294,8 @@ Tictac.prototype.gameWon = function  (playerturn) {
 };
 
 Tictac.prototype.resetBoard = function () {
+  // Start a new game.
   this.player.games++;
-  console.log(this.player.lost , this.player.wins);
   var gamestied = this.player.games - (this.player.lost + this.player.wins);
   this.player.plays = [];
   this.computer.plays = [];
@@ -296,6 +311,7 @@ Tictac.prototype.resetBoard = function () {
 };
 
 Tictac.prototype.saveplayer = function (e) {
+  // Setup the game board
   e.preventDefault();
   var name = $(".name").val();
   var side = $("#inlineRadioO");
@@ -306,9 +322,9 @@ Tictac.prototype.saveplayer = function (e) {
     this.player.XorO = "O";
     this.computer.XorO = "X";
   }
-  $('.start').hide();
   $(".playername").text(this.player.name);
   $(".piece").text(this.player.XorO);
+  $('.start').hide();
   $("#board").show();
 };
 
