@@ -15,14 +15,13 @@ footer:
 </h1>
 
 <div id="game" class="row">
-  <div class="col-md-5">
+  <div class="col-md-12">
     <div class="start">
       <div class="form-group">
         <label for="exampleInputEmail1">Name</label>
         <input type="name" class="form-control name" id="exampleInputEmail1" placeholder="Name">
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">X's or O's</label></br>
         <label class="radio-inline">
           <input type="radio" name="inlineRadioOptions" id="inlineRadioX" value="option1" checked="true"> X
         </label>
@@ -30,24 +29,35 @@ footer:
           <input type="radio" name="inlineRadioOptions" id="inlineRadioO" value="option2"> O
         </label>
       </div>
+      <div class="">
+        <label >Rules:</label> </br>
+          Try to match three in a row. </br>
+          Alternating first moves.
+      </div> </br>
       <button type="button " class="btn btn-success startbutton">Start</button>
     </div>
-    <table id="board">
-      <tr>
-        <td id="a1" class="tile"></td>
-        <td id="b1" class="tile"></td>
-        <td id="c1" class="tile"></td>
-      </tr>
-      <tr>
-        <td id="a2" class="tile"></td>
-        <td id="b2" class="tile"></td>
-        <td id="c2" class="tile"></td>
-      </tr>
-      <tr>
-        <td id="a3" class="tile"></td>
-        <td id="b3" class="tile"></td>
-        <td id="c3" class="tile"></td>
-      </tr>
-    </table>
+    <div id="board">
+      <table class="center">
+        <tr>
+          <td id="a1" class="tile a1b2c3"></td>
+          <td id="b1" class="tile"></td>
+          <td id="c1" class="tile a3b2c1"></td>
+        </tr>
+        <tr>
+          <td id="a2" class="tile"></td>
+          <td id="b2" class="tile a1b2c3 a3b2c1"></td>
+          <td id="c2" class="tile"></td>
+        </tr>
+        <tr>
+          <td id="a3" class="tile a3b2c1"></td>
+          <td id="b3" class="tile"></td>
+          <td id="c3" class="tile a1b2c3"></td>
+        </tr>
+      </table>
+      <div class="gameinfo">
+        <span class="playername"></span> is playing as <span class="piece"></span>'s</br>
+        Games (Wins - Ties - Losses) = <span class="gameswon">0</span> - <span class="gamestied">0</span> -  <span class="gameslost">0</span>
+      </div>
+    </div>
   </div>
 </div>
