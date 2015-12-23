@@ -17,6 +17,7 @@
 }
 
 #gameover{
+  display: none;
   position: absolute;
   width: 425px;
   height: 300px;
@@ -25,8 +26,11 @@
 }
 
 #gameover h1 {
-  margin-top: 115px;
-  color: red;
+  margin-top: 122px;
+  color: #0EF319;
+  background: #1C263C;
+  font-size: 50px;
+
 }
 
 .gameinfo{

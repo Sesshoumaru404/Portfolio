@@ -27,10 +27,7 @@ Tictac.prototype.play = function (e) {
   tile.text(this.player.XorO);
   this.player.plays.push(clickedID);
   this.playableTiles.splice(remove, 1);
-  if (this.gameWon(this.player)) {
-    this.resetBoard();
-    return false;
-  }
+  this.gameWon(this.player);
   this.computerTurn();
 };
 
@@ -41,10 +38,7 @@ Tictac.prototype.computerTurn = function () {
   this.computer.plays.push(move);
   $('#' + move).text(this.computer.XorO);
   this.playableTiles.splice(remove, 1);
-  if (this.gameWon(this.computer)) {
-    this.resetBoard();
-    return false;
-  }
+  this.gameWon(this.computer);
 };
 
 Tictac.prototype.computerlogic = function () {
@@ -132,7 +126,7 @@ Tictac.prototype.setupplays = function () {
       stopplay = "b2";
       return stopplay;
     }
-    // Play and availible tile for first play
+    // Play any availible tile for first play
     play = this.playableTiles[random];
     return play;
   }
@@ -145,6 +139,12 @@ Tictac.prototype.setupplays = function () {
   }
   // Easy win if availible
   if ($('#a1, #a3, #c1, #c3').text() === this.computer.XorO + this.computer.XorO) {
+    if (this.playableTiles.indexOf('b2') != -1) {
+      return 'b2';
+    }
+  }
+  // Prevent setup win for player
+  if ($('#a1, #a3, #c1, #c3').text() === this.player.XorO && $('#b1, #a2, #c2, #b3').text() === this.computer.XorO && this.computer.plays.length === 1 ) {
     if (this.playableTiles.indexOf('b2') != -1) {
       return 'b2';
     }
@@ -249,15 +249,15 @@ Tictac.prototype.findgoodplay = function (player, opp, checkdouble) {
 
 Tictac.prototype.gameWon = function  (playerturn) {
   // If is the game is won
+  if(playerturn.plays.length < 3){
+    return ;
+  }
   var turns = playerturn.plays.length;
   var lastPlay = playerturn.plays[turns - 1];
   var row = lastPlay[1];
   var column = lastPlay[0].charCodeAt() - 96;
   var inRow = playerturn.XorO + playerturn.XorO  + playerturn.XorO;
   var winner;
-  if(turns < 3){
-    return false;
-  }
   // Check columns
   // :nth-child(3)
   if ($('.tile:nth-child('+ column +')').text() === inRow) {
@@ -279,17 +279,20 @@ Tictac.prototype.gameWon = function  (playerturn) {
     winner = true;
   }
   if (winner) {
-    alert("winner " + playerturn.name);
     if (playerturn.name === this.computer.name ) {
+      $(".gameresult").text('You Lost');
       this.player.lost++;
     }else {
+      $(".gameresult").text('Winner!!!');
       this.player.wins++;
     }
-    return true;
+    $("#gameover").show();
+    return setTimeout($.proxy(this.resetBoard, this), 1200);
   }
   if (this.playableTiles.length === 0) {
-    alert('draw');
-    return true;
+    $(".gameresult").text('Draw');
+    $("#gameover").show();
+    return setTimeout($.proxy(this.resetBoard, this), 1200);
   }
 };
 
@@ -305,6 +308,7 @@ Tictac.prototype.resetBoard = function () {
   $(".gameswon").text(this.player.wins);
   $('.tile').css('color', 'black');
   $('.tile').text('');
+  $("#gameover").hide();
   if (this.player.games % 2 !== 0 ) {
     this.computerTurn();
   }
