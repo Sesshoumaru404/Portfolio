@@ -293,14 +293,14 @@ Tictac.prototype.gameWon = function  (playerturn) {
     this.gameover = true;
     return setTimeout($.proxy(this.resetBoard, this), 1200);
   }
+  if (playerturn.name === this.player.name && this.playableTiles.length !== 0) {
+    return this.computerTurn();
+  }
   if (this.playableTiles.length === 0) {
     $(".gameresult").text('Draw');
     $("#gameover").show();
     this.gameover = true;
     return setTimeout($.proxy(this.resetBoard, this), 1200);
-  }
-  if (playerturn.name === this.player.name) {
-    return this.computerTurn();
   }
 };
 
