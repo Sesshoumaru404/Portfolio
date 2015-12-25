@@ -126,6 +126,13 @@ Tictac.prototype.setupplays = function () {
       stopplay = "b2";
       return stopplay;
     }
+    if ($('#b2').text() === this.player.XorO) {
+      // If center played, play corners tile
+      var corners = ['a1','c1','a3','c3'];
+      random = Math.floor(Math.random() * corners.length );
+      stopplay = corners[random];
+      return stopplay;
+    }
     // Play any availible tile for first play
     play = this.playableTiles[random];
     return play;
