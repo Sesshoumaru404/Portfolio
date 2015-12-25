@@ -1,7 +1,7 @@
 # Uncomment if live
-# baseurl: /portfolio/
+baseurl: /portfolio/
 # Uncomment if doing local edits
-baseurl: /
+# baseurl: /
 
 # Assets
 #
