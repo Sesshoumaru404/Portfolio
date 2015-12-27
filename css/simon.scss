@@ -1,6 +1,11 @@
 ---
 # Front matter comment to ensure Jekyll properly reads file.
 ---
+#game{
+  display: none;
+}
+
+canvas { border: 1px solid black; }
 
 .simonbutton {
   height: 100px;
@@ -9,8 +14,31 @@
   margin: 20px;
 }
 
-.simonbutton:active {
-   -moz-box-shadow:    inset 0 0 300px #fff; /* inner white */
-   -webkit-box-shadow: inset 0 0 300px #fff; /* inner white */
-    box-shadow: inset 0 0 300px #fff; /* inner white */
+#red {
+  background-color: red;
 }
+#white {
+  border: solid 2px;
+  background-color: white;
+}
+#blue {
+  background-color: blue;
+}
+
+.clicked {
+   -moz-box-shadow:    inset 0 0 300px #000; /* inner black */
+   -webkit-box-shadow: inset 0 0 300px #000; /* inner black */
+    box-shadow: inset 0 0 300px #000; /* inner black */
+}
+
+// .clicked:active {
+//    -moz-box-shadow:    inset 0 0 300px #fff; /* inner white */
+//    -webkit-box-shadow: inset 0 0 300px #fff; /* inner white */
+//     box-shadow: inset 0 0 300px #fff; /* inner white */
+// }
+//
+// .clicked:hover {
+//    -moz-box-shadow:    inset 0 0 300px #fff; /* inner white */
+//    -webkit-box-shadow: inset 0 0 300px #fff; /* inner white */
+//     box-shadow: inset 0 0 300px #fff; /* inner white */
+// }
