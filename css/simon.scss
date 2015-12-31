@@ -1,11 +1,116 @@
 ---
 # Front matter comment to ensure Jekyll properly reads file.
 ---
-#game{
-  display: none;
+
+.menu{
+  position: absolute;
+  top:130px;
+  right: 130px;
+  width: 190px;
+  height: 190px;
+  // background: black;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  border: 6px solid white;
 }
 
-canvas { border: 1px solid black; }
+
+@-moz-keyframes rotate {
+    0%    { -moz-transform: rotate(0); }
+    100% { -moz-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes rotate {
+    0%    { -webkit-transform: rotate(0); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+.spin {
+  width: 450px;
+  height: 450px;
+  // position: absolute; width: 25px; height: 25px;
+  // -moz-animation: 2s rotate 1 linear  ;
+  // -moz-transform-origin: 50% 50%;
+  // -webkit-animation-origin: 50% 50%;
+  // -webkit-animation: 2s rotate infinite linear  ;
+      // -webkit-transform: rotate(90deg);
+      // -moz-transform: rotate(90deg);
+      // -o-transform: rotate(90deg);
+      // -ms-transform: rotate(90deg);
+      // transform: rotate(90deg);
+}
+
+
+
+.logo{
+  position: relative;
+  top: 2px;
+  left: 40px;
+  width: 100px;
+  text-align: center;
+  color: white;
+}
+
+.countbox {
+  position: relative;
+  top: 16px;
+  left: 58px;
+  border-radius: 30px;
+  background-color: black;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  border: 6px outset white;
+  color: white;
+  font-size: 26px;
+  padding-top: 6px;
+}
+
+#letters span{
+  height: 45px;
+  position: absolute;
+  top: 65px;
+  left: 83px;
+  font-weight: bolder;
+  // color: white;
+}
+.starts{
+  transform-origin: bottom center;
+  color: green;
+  z-index: 1;
+}
+
+.stricts{
+  color: yellow;
+    padding-top: 80px;
+    transform-origin: center center;
+}
+
+.start1 { transform: rotate(-30deg); }
+.start2 { transform: rotate(-10deg); }
+.start3 { transform: rotate(10deg); }
+.start4 { transform: rotate(30deg); }
+.start5 { transform: rotate(50deg); }
+
+
+.strict1 { transform: rotate(30deg); }
+.strict2 { transform: rotate(15deg); }
+.strict3 { transform: rotate(0deg); }
+.strict4 { transform: rotate(-15deg); }
+.strict5 { transform: rotate(-25deg); }
+.strict6 { transform: rotate(-40deg); }
+
+#game{
+  position: absolute;
+  // display: none;
+}
+
+.test{
+  position: absolute;
+  display: none;
+}
+// canvas { border: 1px solid black; }
 
 .simonbutton {
   height: 100px;
