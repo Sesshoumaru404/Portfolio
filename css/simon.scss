@@ -46,8 +46,8 @@
 .logo{
   position: relative;
   top: 2px;
-  left: 40px;
-  width: 100px;
+  // left: 40px;
+  // width: 100px;
   text-align: center;
   color: white;
 }
@@ -69,6 +69,7 @@
 
 #letters span{
   height: 45px;
+  width: 10px;
   position: absolute;
   top: 65px;
   left: 83px;
@@ -80,11 +81,17 @@
   color: green;
   z-index: 1;
 }
+.stops{
+  transform-origin: bottom center;
+  color: red;
+  z-index: 1;
+  display: none;
+}
 
 .stricts{
   color: yellow;
-    padding-top: 80px;
-    transform-origin: center center;
+  padding-top: 80px;
+  transform-origin: center center;
 }
 
 .start1 { transform: rotate(-30deg); }
@@ -93,6 +100,10 @@
 .start4 { transform: rotate(30deg); }
 .start5 { transform: rotate(50deg); }
 
+.stop1 { transform: rotate(-30deg); }
+.stop2 { transform: rotate(-10deg); }
+.stop3 { transform: rotate(9deg); }
+.stop4 { transform: rotate(35deg); }
 
 .strict1 { transform: rotate(30deg); }
 .strict2 { transform: rotate(15deg); }
@@ -111,13 +122,13 @@
   display: none;
 }
 // canvas { border: 1px solid black; }
-
-.simonbutton {
-  height: 100px;
-  width: 100px;
-  background-color: blue;
-  margin: 20px;
-}
+//
+// .simonbutton {
+//   height: 100px;
+//   width: 100px;
+//   background-color: blue;
+//   margin: 20px;
+// }
 
 #red {
   background-color: red;
