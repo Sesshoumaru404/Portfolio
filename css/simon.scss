@@ -8,46 +8,15 @@
   right: 130px;
   width: 190px;
   height: 190px;
-  // background: black;
   -moz-border-radius: 100px;
   -webkit-border-radius: 100px;
   border-radius: 100px;
   border: 6px solid white;
 }
 
-
-@-moz-keyframes rotate {
-    0%    { -moz-transform: rotate(0); }
-    100% { -moz-transform: rotate(360deg); }
-}
-
-@-webkit-keyframes rotate {
-    0%    { -webkit-transform: rotate(0); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-
-.spin {
-  width: 450px;
-  height: 450px;
-  // position: absolute; width: 25px; height: 25px;
-  // -moz-animation: 2s rotate 1 linear  ;
-  // -moz-transform-origin: 50% 50%;
-  // -webkit-animation-origin: 50% 50%;
-  // -webkit-animation: 2s rotate infinite linear  ;
-      // -webkit-transform: rotate(90deg);
-      // -moz-transform: rotate(90deg);
-      // -o-transform: rotate(90deg);
-      // -ms-transform: rotate(90deg);
-      // transform: rotate(90deg);
-}
-
-
-
 .logo{
   position: relative;
   top: 2px;
-  // left: 40px;
-  // width: 100px;
   text-align: center;
   color: white;
 }
@@ -74,7 +43,6 @@
   top: 65px;
   left: 83px;
   font-weight: bolder;
-  // color: white;
 }
 .starts{
   transform-origin: bottom center;
@@ -89,7 +57,7 @@
 }
 
 .stricts{
-  color: yellow;
+  color : #6F6F6A;
   padding-top: 80px;
   transform-origin: center center;
 }
@@ -114,21 +82,12 @@
 
 #game{
   position: absolute;
-  // display: none;
 }
 
 .test{
   position: absolute;
   display: none;
 }
-// canvas { border: 1px solid black; }
-//
-// .simonbutton {
-//   height: 100px;
-//   width: 100px;
-//   background-color: blue;
-//   margin: 20px;
-// }
 
 #red {
   background-color: red;
@@ -146,15 +105,3 @@
    -webkit-box-shadow: inset 0 0 300px #000; /* inner black */
     box-shadow: inset 0 0 300px #000; /* inner black */
 }
-
-// .clicked:active {
-//    -moz-box-shadow:    inset 0 0 300px #fff; /* inner white */
-//    -webkit-box-shadow: inset 0 0 300px #fff; /* inner white */
-//     box-shadow: inset 0 0 300px #fff; /* inner white */
-// }
-//
-// .clicked:hover {
-//    -moz-box-shadow:    inset 0 0 300px #fff; /* inner white */
-//    -webkit-box-shadow: inset 0 0 300px #fff; /* inner white */
-//     box-shadow: inset 0 0 300px #fff; /* inner white */
-// }

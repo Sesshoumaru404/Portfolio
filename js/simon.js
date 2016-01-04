@@ -8,6 +8,7 @@ function Simon (div) {
   this.playcount = 0;
   this.checkcount = 0;
   this.speed = 1500;
+  this.strictOn = false;
   this.count = $(".count");
   this.colorblue = $("path#blue").attr('fill');
   this.colorred = $("path#red").attr('fill');
@@ -16,24 +17,29 @@ function Simon (div) {
   this.buzzer = document.createElement('audio');
   this.buzzer.setAttribute('src', '../files/buzz.mp3');
   this.gamediv.on('click', '.starts', $.proxy(this.startgame, this));
-  this.gamediv.on('mousedown', '.simonbutton',
-    $.proxy(this.glowstart, this)
-  );
-  this.gamediv.on('mouseup', '.simonbutton',
-    $.proxy(this.glowend, this)
-  );
-  this.gamediv.on('mouseout', '.simonbutton',
-    $.proxy(this.glowend, this)
-  );
-  this.gamediv.on('click', '.stops',
-    $.proxy(this.reset, this)
-  );
-  this.gamediv.on('click', '.stricts',
-    $.proxy(this.reset, this)
-  );
+  this.gamediv.on('mousedown', '.simonbutton', $.proxy(this.glowstart, this));
+  this.gamediv.on('mouseup', '.simonbutton', $.proxy(this.glowend, this));
+  this.gamediv.on('mouseout', '.simonbutton', $.proxy(this.glowend, this));
+  this.gamediv.on('click', '.stops', $.proxy(this.reset, this));
+  this.gamediv.on('click', '.stricts', $.proxy(this.strict, this));
 }
 
+Simon.prototype.strict = function () {
+  // When strict letter are clicked
+  if (this.currentpattern.length !== 0) {
+    return false;
+  }
+  if (this.strictOn) {
+    $('.stricts').css('color','#6F6F6A');
+    this.strictOn = false;
+  } else {
+    $('.stricts').css('color',' #FFFF00');
+    this.strictOn = true;
+  }
+};
+
 Simon.prototype.reset = function () {
+  // Reset board after stop letters are clicked
     this.currentpattern = [];
     this.playcount = 0;
     this.checkcount = 0;
@@ -43,6 +49,7 @@ Simon.prototype.reset = function () {
 };
 
 Simon.prototype.startgame = function (e) {
+  // Start a new game after start letters are clicked
   $('.starts').hide();
   $('.stops').show();
   this.playable = false;
@@ -51,6 +58,8 @@ Simon.prototype.startgame = function (e) {
 };
 
 Simon.prototype.glowstart = function (e) {
+  // Add glow effect to tiles after mousedown and
+  // check if click matches pattern.
   if (!this.playable) {
     return false;
   }
@@ -65,15 +74,21 @@ Simon.prototype.glowstart = function (e) {
     }
     return false;
   } else {
+    this.buzzer.play();
     this.playable = false;
     this.playcount = 0;
-    this.buzzer.play();
+    if (this.strictOn) {
+        this.currentpattern = [];
+        this.checkcount = 0;
+        this.count.text("--");
+        return this.nextpattern();
+    }
     setTimeout($.proxy(this.playback, this), 2000);
   }
-  // this.currentpattern.push(nextpattern);
 };
 
 Simon.prototype.nextpattern = function () {
+  // Start a new pattern or extend a current pattern.
   var nextpattern = Math.floor(Math.random() * this.gameOptions.length );
   var number = 0;
   nextpattern = this.gameOptions[nextpattern];
@@ -89,34 +104,31 @@ Simon.prototype.nextpattern = function () {
   this.playpattern();
 };
 
-Simon.prototype.playpattern = function () {
-  // var that = this;
-  // this.deferredresume = $.Deferred();
-
-  setTimeout($.proxy(this.playback, this), this.speed);
-
-  // return  this.deferredresume.promise();
-};
-
 Simon.prototype.playback = function () {
-  // console.log();
+  // play back the curent pattern.
   var id = this.currentpattern[this.playcount];
   this.currentcolor = this.currentpattern[this.playcount];
   var color = this['color' + id];
    this.buttoneffect();
    this.playcount++;
-   setTimeout($.proxy(this.glowend, this), this.speed - 200);
+   setTimeout($.proxy(this.glowend, this), this.speed);
    if (this.playcount < this.currentpattern.length) {
        return this.playpattern();
-   } else if (this.playcount === this.currentpattern.length) {
-     // speed not fast that 500
-    //  this.speed = this.speed -100;
+   }
+   if (this.playcount === this.currentpattern.length) {
+    //  Lowest speed is 500.
+     if (this.currentpattern.length % 4 === 0 && this.speed - 500 >= 500){
+       this.speed = this.speed - 500;
+     }
      this.playable = true;
      console.log(this.playable, "playback done ");
      return false;
-   }else {
-    //  setTimeout(this.gamepaused = false, this.speed + 300);
    }
+};
+
+Simon.prototype.playpattern = function () {
+  // delay playback
+  setTimeout($.proxy(this.playback, this), this.speed);
 };
 
 Simon.prototype.checkentry = function (simonbutton) {
@@ -131,10 +143,12 @@ Simon.prototype.checkentry = function (simonbutton) {
 };
 
 Simon.prototype.glowend = function () {
+  // End the glow effect
   $("path#" + this.currentcolor).attr('fill', this['color' + this.currentcolor]);
 };
 
 Simon.prototype.buttoneffect = function () {
+  // Add glow effect plus sound
   var id = this.currentcolor;
   var audioElement = document.createElement('audio');
   this.resetcolor = $("path#" + id).attr('fill');
