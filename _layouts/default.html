@@ -30,11 +30,14 @@
   <body>
 
     <div class="container">
-      <div class="row">
-          {% include header.html %}
-          {% include sidebar.html %}
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          {{ content }}
+      <div class="navsideor">
+        {% include header.html %}
+        {% include sidebar.html %}
+      </div>
+      <div class="mainlayout">
+        <div class="row">
+          {{ content }}          
+        </div>
       </div>
     </div>
 
