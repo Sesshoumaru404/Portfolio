@@ -32,11 +32,6 @@ body {
   display: none;
 }*/
 
-@media (min-width: 768px) {
-  .navbar {
-    display: none;
-  }
-}
 /*
  * Sidebar
  */
@@ -47,9 +42,23 @@ body {
   display: none;
 }
 @media (min-width: 768px) {
+
+  .navbar {
+    display: none;
+  }
+
   .mainlayout{
     padding: 30px;
     margin-left: 215px;
+    .row{
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
   }
 
   .container{
@@ -134,12 +143,7 @@ body {
 .main {
   padding: 60px 20px;
 }
-@media (min-width: 768px) {
-  .main {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-}
+
 .main .page-header {
   margin-top: 0;
 }
