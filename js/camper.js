@@ -36,9 +36,16 @@ function News () {
   this.feed = "http://www.freecodecamp.com/news/hot";
   this.getLastest = function () {
     $.ajax({
-        url: this.feed,
         type: 'GET',
-        dataType: 'json',
+        url: this.feed,
+        xhrFields: {
+          withCredentials: true
+        },
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        dataType: 'json'
     }).done(function (data) {
         for (var item in data) {
           $('.feeds').append(newStyle(data[item]));

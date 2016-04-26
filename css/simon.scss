@@ -33,7 +33,7 @@
   border: 6px outset white;
   color: white;
   font-size: 26px;
-  padding-top: 6px;
+  padding-top: 16px;
 }
 
 #letters span{
@@ -81,7 +81,7 @@
 .strict6 { transform: rotate(-40deg); }
 
 #game{
-  position: absolute;
+  position: relative;
 }
 
 .test{

@@ -1,27 +1,26 @@
 ---
-layout: default
+layout: projects
 title: Wikipedia Viewer
+github: https://github.com/Sesshoumaru404/portfolio/blob/gh-pages/js/wiki.js
+codepen: http://codepen.io/sesshoumaru404/full/gPYMNb/
 head:
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/wiki.css">
-footer:
-  <script src='../js/wiki.js'></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+footer: <script src='../js/wiki.js'></script>
 ---
-
-
-<div class="row">
-  <h1>
-    Wikipedia Viewer
-    <a href="https://github.com/Sesshoumaru404/portfolio/blob/gh-pages/js/wiki.js" title="GitHub"><i class="fa fa fa-github-square fa-4"></i></a>
-    <a href="http://codepen.io/sesshoumaru404/full/gPYMNb/" title="CodePen"><i class="fa fa-codepen fa-4"></i></a>
-  </h1>
-  <div class="wiki">
-    <div class="input-group">
-      <div id="random" class="input-group-addon"><span class="glyphicon glyphicon-random" aria-hidden="true"></span></div>
-      <input id="wikisearch" type="search" class="form-control" placeholder="Search Wikipedia">
-    </div>
-    <div class="results row"></div>
-    <div class="moreResults row" start="" text="">Load More ...</div>
-    <div class="error row" ></div>
+<div class="wiki">
+  <!-- <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="search" id="wikisearch" placeholder="Search Wikipedia">
+  </div> -->
+  <div class="mdl-textfield mdl-js-textfield">
+    <input id="wikisearch" type="search" class="mdl-textfield__input" placeholder="Search Wikipedia">
   </div>
+
+  <button id="random"  class="mdl-button mdl-js-button mdl-button--icon">
+    <i class="material-icons">casino</i>
+  </button>
+  <div class="results row"></div>
+  <div class="moreResults row" start="" text="">Load More ...</div>
+  <div class="error row" ></div>
 </div>

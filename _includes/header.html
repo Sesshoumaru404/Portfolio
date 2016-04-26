@@ -2,35 +2,32 @@
     <div class="mdl-layout__header-row portfolio-logo-row">
         <span class="mdl-layout__title">
             <div class="portfolio-logo"></div>
-            <span class="mdl-layout__title">Simple portfolio website</span>
+            <span class="mdl-layout__title">{{site.title}}</span>
         </span>
     </div>
     <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
         <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
 
-            <a class="mdl-navigation__link is-active" href="{{ site.baseurl }}">Portfolio</a>
-            <a class="mdl-navigation__link" href="#">Progress & Goals</a>
-            <a class="mdl-navigation__link" href="{{ site.baseurl }}pages/about.html">About</a>
-            <!-- <li class="active"><a href="#freecode">Projects</a></li>
-            <li><a href="{{ site.baseurl }}zipline/calculator.html">FreeCode : Calculator</a></li>
-            <li><a href="{{ site.baseurl }}zipline/pomodoro.html">FreeCode : Pomodoro</a></li>
-            <li><a href="{{ site.baseurl }}zipline/twitchapi.html">FreeCode : Twitchapi</a></li>
-            <li><a href="{{ site.baseurl }}zipline/weather.html">FreeCode : Quotes</a></li>
-            <li><a href="{{ site.baseurl }}zipline/campernews.html">FreeCode : Camper News</a></li>
-            <li><a href="{{ site.baseurl }}zipline/wiki.html">FreeCode : Wiki Viewer</a></li>
-            <li><a href="{{ site.baseurl }}zipline/tic.html">FreeCode : Tic Tac Toe</a></li>
-            <li><a href="{{ site.baseurl }}zipline/simon.html">FreeCode : Simon</a></li>
-            <li><a href="http://52.11.159.100/">Udacity : Catalog App</a></li> -->
-            <!-- <a class="mdl-navigation__link is-active" href="index.html">Portfolio</a> -->
-            <!-- <a class="mdl-navigation__link" href="blog.html">Blog</a> -->
-            <!-- <a class="mdl-navigation__link" href="contact.html">Contact</a> -->
+            <a id="index" class="mdl-navigation__link is-active" href="{{ site.baseurl }}">Portfolio</a>
+            <a id="contact" class="mdl-navigation__link" href="{{ site.baseurl }}pages/contact.html">Contact</a>
+            <!-- <a id="goals" class="mdl-navigation__link" href="#">Progress & Goals</a> -->
+            <a id="about" class="mdl-navigation__link" href="{{ site.baseurl }}pages/about.html">About</a>
         </nav>
     </div>
 </header>
 <div class="mdl-layout__drawer mdl-layout--small-screen-only">
     <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-      <a class="mdl-navigation__link is-active" href="{{ site.baseurl }}">Portfolio</a>
+      <a class="mdl-navigation__link" href="{{ site.baseurl }}">Portfolio</a>
       <a class="mdl-navigation__link" href="#">Progress & Goals</a>
       <a class="mdl-navigation__link" href="{{ site.baseurl }}pages/about.html">About</a>
+      <a class="mdl-navigation__link" href="{{ site.baseurl }}zipline/calculator.html">FreeCode : Calculator</a>
+      <a class="mdl-navigation__link" href="{{ site.baseurl }}zipline/pomodoro.html">FreeCode : Pomodoro</a>
+      <a class="mdl-navigation__link" href="{{ site.baseurl }}zipline/twitch.html">FreeCode : Twitchapi</a>
+      <a class="mdl-navigation__link" href="{{ site.baseurl }}zipline/qoutes.html">FreeCode : Quotes</a>
+      <a class="mdl-navigation__link" href="{{ site.baseurl }}zipline/news.html">FreeCode : Camper News</a>
+      <a class="mdl-navigation__link" href="{{ site.baseurl }}zipline/wiki.html">FreeCode : Wiki Viewer</a>
+      <a class="mdl-navigation__link" href="{{ site.baseurl }}zipline/tic.html">FreeCode : Tic Tac Toe</a>
+      <a class="mdl-navigation__link" href="{{ site.baseurl }}zipline/simon.html">FreeCode : Simon</a>
+      <a class="mdl-navigation__link" href="http://52.11.159.100/">Udacity : Catalog App</a>
     </nav>
 </div>

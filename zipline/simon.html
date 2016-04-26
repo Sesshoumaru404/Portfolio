@@ -1,80 +1,79 @@
 ---
-layout: default
-title: Simon
+layout: projects
+title: Simon Game
+github: https://github.com/Sesshoumaru404/portfolio/blob/gh-pages/js/simon.js
+codepen: http://codepen.io/sesshoumaru404/full/pgRYeo/
 head:
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/simon.css">
 footer:
   <script src='../js/simon.js'></script>
 ---
-<div class="row">
-  <h1>
-    Simon
-    <a href="https://github.com/Sesshoumaru404/portfolio/blob/gh-pages/js/simon.js" title="GitHub"><i class="fa fa fa-github-square fa-4"></i></a>
-    <a href="http://codepen.io/sesshoumaru404/full/pgRYeo/" title="CodePen"><i class="fa fa-codepen fa-4"></i></a>
-  </h1>
-  <div id="game">
-    <div class="svgidea spin">
-      <svg width="450px" height="450px" version="1.1" xmlns="http://www.w3.org/2000/svg">
-       <defs>
-        <radialGradient id="Gradientblue" r="70%">
+<div id="game">
+  <div class="svgidea spin">
+    <svg width="450px" height="450px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+     <defs>
+      <radialGradient id="Gradientblue" r="70%">
+          <stop offset="6%" stop-color="white"/>
+          <stop offset="94%" stop-color="blue"/>
+      </radialGradient>
+       <radialGradient id="Gradientgreen" r="70%">
+           <stop offset="6%" stop-color="white"/>
+           <stop offset="94%" stop-color="green"/>
+       </radialGradient>
+        <radialGradient id="Gradientred" r="70%">
             <stop offset="6%" stop-color="white"/>
-            <stop offset="94%" stop-color="blue"/>
+            <stop offset="94%" stop-color="red"/>
         </radialGradient>
-         <radialGradient id="Gradientgreen" r="70%">
-             <stop offset="6%" stop-color="white"/>
-             <stop offset="94%" stop-color="green"/>
-         </radialGradient>
-          <radialGradient id="Gradientred" r="70%">
-              <stop offset="6%" stop-color="white"/>
-              <stop offset="94%" stop-color="red"/>
-          </radialGradient>
-         <radialGradient id="Gradientyellow" r="70%">
-             <stop offset="6%" stop-color="white"/>
-             <stop offset="94%" stop-color="yellow"/>
-         </radialGradient>
-       </defs>
-        <circle cx="225" cy="225" r="225" fill="#333333"/>
-        <path id="green" class="simonbutton" d="M10 220
-                 A 215 215, 0, 0, 1, 220 10
-                 L 220 220 Z" fill="rgba(0, 167, 74, 0.88)"/>
-       <path id="red" class="simonbutton"  d="M230 10
-                A 215 215, 0, 0, 1, 440 220
-                L 230 220 Z" fill="rgba(134, 0, 0, 0.88)"/>
-       <path id="blue" class="simonbutton" d="M230 440
-                A 215 215, 0, 0, 0, 440 230
-                L 230 230 Z" fill="rgba(0, 0, 134, 0.88)" />
-        <path id="yellow" class="simonbutton" d="M10 230
-                 A 215 215, 0, 0, 0, 220 440
-                 L 220 230 Z" fill="rgba(204, 167, 7, 0.88)"/>
-        <circle cx="225" cy="225" r="100" fill="#333333"/>
-      </svg>
+       <radialGradient id="Gradientyellow" r="70%">
+           <stop offset="6%" stop-color="white"/>
+           <stop offset="94%" stop-color="yellow"/>
+       </radialGradient>
+     </defs>
+      <circle cx="225" cy="225" r="225" fill="#333333"/>
+      <path id="green" class="simonbutton" d="M10 220
+               A 215 215, 0, 0, 1, 220 10
+               L 220 220 Z" fill="rgba(0, 167, 74, 0.88)"/>
+     <path id="red" class="simonbutton"  d="M230 10
+              A 215 215, 0, 0, 1, 440 220
+              L 230 220 Z" fill="rgba(134, 0, 0, 0.88)"/>
+     <path id="blue" class="simonbutton" d="M230 440
+              A 215 215, 0, 0, 0, 440 230
+              L 230 230 Z" fill="rgba(0, 0, 134, 0.88)" />
+      <path id="yellow" class="simonbutton" d="M10 230
+               A 215 215, 0, 0, 0, 220 440
+               L 220 230 Z" fill="rgba(204, 167, 7, 0.88)"/>
+      <circle cx="225" cy="225" r="100" fill="#333333"/>
+    </svg>
+  </div>
+  <div class="menu">
+    <div class="logo">
+      <h1>Simon</h1>
     </div>
-    <div class="menu">
-      <div class="logo">
-        <h1>Simon</h1>
+      <div class="countbox">
+        <span  class="count">--</span>
       </div>
-        <div class="countbox">
-          <span  class="count">--</span>
-        </div>
-      <div id="letters">
-        <span class="stop1 stops">S</span>
-        <span class="stop2 stops">T</span>
-        <span class="stop3 stops">O</span>
-        <span class="stop4 stops">P</span>
-        <span class="start1 starts">S</span>
-        <span class="start2 starts">T</span>
-        <span class="start3 starts">A</span>
-        <span class="start4 starts">R</span>
-        <span class="start5 starts">T</span>
-        <span class="strict1 stricts">S</span>
-        <span class="strict2 stricts">T</span>
-        <span class="strict3 stricts">R</span>
-        <span class="strict4 stricts">I</span>
-        <span class="strict5 stricts">C</span>
-        <span class="strict6 stricts">T</span>
-        <!-- start -->
-      </div>
+    <div id="letters">
+      <span class="stop1 stops">S</span>
+      <span class="stop2 stops">T</span>
+      <span class="stop3 stops">O</span>
+      <span class="stop4 stops">P</span>
+      <span class="start1 starts">S</span>
+      <span class="start2 starts">T</span>
+      <span class="start3 starts">A</span>
+      <span class="start4 starts">R</span>
+      <span class="start5 starts">T</span>
+      <span class="strict1 stricts">S</span>
+      <span class="strict2 stricts">T</span>
+      <span class="strict3 stricts">R</span>
+      <span class="strict4 stricts">I</span>
+      <span class="strict5 stricts">C</span>
+      <span class="strict6 stricts">T</span>
+      <!-- start -->
     </div>
-    <div class="speed">
+  </div>
+  <div class="speed">
+  </div>
 </div>
