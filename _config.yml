@@ -14,9 +14,9 @@ email: Sesshoumaru404@outlook.com
 #   Google search results) and in your feed.xml site description.
 
 # Uncomment if live
-# baseurl: /portfolio/
+baseurl: /portfolio/
 # Uncomment if doing local edits
-baseurl: /
+# baseurl: /
 
 # url: "http://yourdomain.com" # the base hostname & protocol for your site
 # twitter_username: jekyllrb
