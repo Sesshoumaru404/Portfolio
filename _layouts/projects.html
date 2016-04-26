@@ -35,7 +35,22 @@
       {% include header.html %}
       <main class="mdl-layout__content">
           <div class="mdl-grid portfolio-max-width">
-            {{ content }}
+            <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">{{ page.title }}    </h2>
+                    <a href="{{ page.github }}" title="GitHub"><i class="fa fa fa-github-square fa-4"></i>    </a>
+                    <a href="{{ page.codepen }}"><i class="fa fa-codepen fa-4"></i></a>
+                </div>
+                <div class="mdl-card__media">
+                    <img class="article-image" src="{{ site.baseurl }}files/code.jpg" border="0" alt="">
+                </div>
+
+                <div class="mdl-grid portfolio-copy">
+                    <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text -padding ">
+                      {{ content }}
+                    </div>
+                </div>
+            </div>
           </div>
           {% include footer.html %}
       </main>
