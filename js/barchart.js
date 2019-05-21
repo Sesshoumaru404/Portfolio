@@ -1,82 +1,107 @@
-// var BARGRAPH = BARGRAPH || {};
 
-var BARGRAPH = {
-  // x : d3.scale.ordinal()
-  //     .rangeRoundBands([0, "width"], .1),
-  margin : {top: 20, right: 20, bottom: 30, left: 40},
-  width : BARGRAPH,
-  // height : 500 - this.margin.top - this.margin.bottom,
-  show : function () {
-    console.log(this.width);
-  },
+function printData(json) {
+  let dataset = json.data;
+  //const winWidth = document.body.clientWidth;
+  const winWidth = document.getElementsByClassName("portfolio-max-width")[0].clientWidth;
+  console.log(winWidth);
+  
+  // Set the dimensions of the canvas / graph
+  const margin = {
+    top: 30,
+    right: 20,
+    bottom: 30,
+    left: 50
+  };
+  
+  const w = (winWidth * .75) - margin.left - margin.right;
+  const h = ((winWidth * .75) * .50) - margin.top - margin.bottom;
+  const padding = 60;
+  
+ document.getElementById("chart").style.width = w + "px";
+ //document.getElementByClass("portfolio-max-width")[0].style.width = w + "px";
+  
+ // define the x scale (horizontal)
+  let mindate = new Date(d3.min(dataset, (d) => d[0]));
+  let maxdate = new Date(d3.max(dataset, (d) => d[0])); 
+    
+  const xScale = d3.scaleTime()
+                .domain([mindate, maxdate])
+                .range([padding, w - padding]);
+      
+  const yScale = d3.scaleLinear()
+                .domain([0, d3.max(dataset, (d) => d[1])])
+                .range([h - padding, padding]);
+ 
+  const xAxis = d3.axisBottom(xScale);
+  const yAxis = d3.axisLeft(yScale);
+
+  const div = d3.select("#chart").append("div")	
+  .attr("id", "tooltip")				
+  .style("opacity", 0);
+
+  const header = d3.select("#chart")
+  .append("div")	
+  .attr("id", "title")
+  .html(
+    "<h1>"+ json.name +"</h1>"
+  )
+
+
+  const svg = d3.select("#chart")
+                .append("svg")
+                .attr("width", (w))
+                .attr("height", (h));
+
+
+  svg.append("g")
+    .attr("id", "x-axis")
+    .attr("transform", "translate(0," + (h - padding) + ")")
+    .call(xAxis);
+
+  svg.append("g")
+    .attr("id", "y-axis")
+    .attr("transform", "translate("+ (padding) + ",0)")
+    .call(yAxis);
+  
+    
+  svg.selectAll("rect")
+    .data(dataset)
+    .enter()
+    .append("rect")
+    .attr("class", "bar")
+    .attr("data-date", (d) => d[0])
+    .attr("data-gdp", (d) => d[1])
+    .attr("x", (d, i) => {
+      let date = new Date(d[0]);
+      return xScale(date);
+    })
+    .attr("y", (d, i) => yScale(d[1]- padding) )
+    .attr("width", 2)
+    .attr("height", (d, i) => (h - padding) - yScale(d[1]) )
+    .on("mouseover", (d) => {
+        let date = new Date(d[0]);
+        div.attr("data-date", d[0])
+        div.transition()		
+            .duration(200)		
+            .style("opacity", .9);		
+        div.html(date.getMonth() + "/" + date.getDay() + "/" + date.getFullYear() + "<br/>"  + d[1])	
+            .style("left", ((xScale(date) + 3) + "px"))	
+          //  .style("top", (yScale(d[1])) + "px");	
+            .style("top", "370px");	
+        })
+    .on("mouseout", (d) => {		
+        div.transition()		
+            .duration(500)		
+           .style("opacity", 0);	
+  })
+
+  
 }
-BARGRAPH.test = {
-  show : function () {
-    console.log(d3);
-  }
 
+var req = new XMLHttpRequest();
+req.open("GET",'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json',true);
+req.send();
+req.onload=function(){
+  json=JSON.parse(req.responseText);
+  printData(json);  
 }
-
-BARGRAPH.test.show();
-// var margin = {top: 20, right: 20, bottom: 30, left: 40},
-//     width = 960 - margin.left - margin.right,
-//     height = 500 - margin.top - margin.bottom;
-//
-// var x = d3.scale.ordinal()
-//     .rangeRoundBands([0, width], .1);
-//
-// var y = d3.scale.linear()
-//     .range([height, 0]);
-//
-// var xAxis = d3.svg.axis()
-//     .scale(x)
-//     .orient("bottom")
-//     .ticks(15, "milli");
-//
-// var yAxis = d3.svg.axis()
-//     .scale(y)
-//     .orient("left")
-//     .ticks(10, "milli");
-//
-// var svg = d3.select(".mainlayout").append("svg")
-//     .attr("width", width + margin.left + margin.right)
-//     .attr("height", height + margin.top + margin.bottom)
-//   .append("g")
-//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-//
-// // d3.xhr("https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json", "json", function(error, data) {
-// d3.json("../files/data.json", function(error, data) {
-//   if (error) throw error;
-//   console.log(data['data']);
-//   x.domain(data['data'].map(function(d) { return d[0]; }));
-//   y.domain([200, d3.max(data['data'], function(d) { return d[1]; })]);
-//
-//   svg.append("g")
-//       .attr("class", "x axis")
-//       .attr("transform", "translate(0," + height + ")")
-//       .call(xAxis);
-//
-//   svg.append("g")
-//       .attr("class", "y axis")
-//       .call(yAxis)
-//     .append("text")
-//       .attr("transform", "rotate(-90)")
-//       .attr("y", 6)
-//       .attr("dy", ".71em")
-//       .style("text-anchor", "end")
-//       .text("Gross Domestic Product, USA");
-//
-//   svg.selectAll(".bar")
-//       .data(data)
-//     .enter().append("rect")
-//       .attr("class", "bar")
-//       .attr("x", function(d) { return x(d.letter); })
-//       .attr("width", x.rangeBand())
-//       .attr("y", function(d) { return y(d.frequency); })
-//       .attr("height", function(d) { return height - y(d.frequency); });
-// });
-//
-// function type(d) {
-//   d.frequency = +d.frequency;
-//   return d;
-// }
